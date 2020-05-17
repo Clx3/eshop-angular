@@ -1,6 +1,22 @@
 <h1>Products</h1>
-  <mat-grid-list cols="4" rowHeight="600px">
-    <mat-grid-tile *ngFor="let product of products">
-      <app-product-card [product]="product"></app-product-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div fxLayout="row" fxLayoutAlign="center">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Search for products</mat-label>
+      <input [(ngModel)]="searchInputText" matInput placeholder="Start typing...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </p>
+  <mat-form-field appearance="outline">
+    <mat-label>Select category</mat-label>
+    <mat-select [(ngModel)]="selectedCategory" (selectionChange)="filterProducts()">
+      <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option>
+    </mat-select>
+    <mat-icon matSuffix>category</mat-icon>
+  </mat-form-field>
+</div>
+<mat-grid-list cols="4" rowHeight="600px">
+  <mat-grid-tile *ngFor="let product of products">
+    <app-product-card [product]="product"></app-product-card>
+  </mat-grid-tile>
+</mat-grid-list>
