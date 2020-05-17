@@ -12,6 +12,9 @@ import { CategoryService } from '../service/category.service';
 })
 export class ProductsComponent implements OnInit {
 
+  productService: ProductService;
+  categoryService: CategoryService;
+
   products: Product[] = [];
 
   searchInputText: string = '';
@@ -20,6 +23,9 @@ export class ProductsComponent implements OnInit {
   selectedCategory: Category = this.categories[0];
 
   constructor(productService: ProductService, categoryService: CategoryService) {
+    this.productService = productService;
+    this.categoryService = categoryService;
+
     productService.getProducts((products) => {
       this.products = products;
       console.log(this.products);
@@ -35,8 +41,9 @@ export class ProductsComponent implements OnInit {
   }
 
   filterProducts(): void {
-    console.log(this.searchInputText)
-    console.log(this.selectedCategory)
+    this.productService.getProductsByFilters(this.searchInputText, this.selectedCategory.id, (products) => {
+      this.products = products;
+    })
   }
 
 }
