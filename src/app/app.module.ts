@@ -17,6 +17,7 @@ import { ProductsComponent } from './products/products.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { ProductService } from './service/product.service';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { CategoryService } from './service/category.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
   exports: [
     ProductCardComponent
   ],
-  providers: [ProductService],
+  providers: [ProductService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
