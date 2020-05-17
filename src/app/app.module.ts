@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list'
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { ProductService } from './service/product.service';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CategoryService } from './service/category.service';
+import { ProductManagerComponent } from './product-manager/product-manager.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { CategoryService } from './service/category.service';
     ProductsComponent,
     ControlPanelComponent,
     ProductCardComponent,
+    ProductManagerComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { CategoryService } from './service/category.service';
     MatSelectModule,
     MatInputModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule
   ],
   exports: [
     ProductCardComponent
