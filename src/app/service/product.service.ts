@@ -12,6 +12,7 @@ export class ProductService {
 
   }
 
+  // Test
   getProducts(callback: (products: Product[]) => any): void {
     this.httpClient.get<Product[]>(`http://localhost:3000/products/`).subscribe(jsonObject => {
       
