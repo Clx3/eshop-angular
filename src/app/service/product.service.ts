@@ -14,7 +14,7 @@ export class ProductService {
   }
 
   getProducts(callback: (products: Product[]) => any): void {
-    this.httpClient.get<Product[]>(`http://localhost:3000/products/`).subscribe(jsonObject => {
+    this.httpClient.get<Product[]>(`${API_BASE_URL}products/`).subscribe(jsonObject => {
       
       callback(jsonObject);
     });
@@ -29,9 +29,27 @@ export class ProductService {
       params = params.append('categoryId', categoryId.toString());
     }
 
-    this.httpClient.get<Product[]>(`http://localhost:3000/products/`, { params: params }).subscribe(jsonObject => {
+    this.httpClient.get<Product[]>(`${API_BASE_URL}products/`, { params: params }).subscribe(jsonObject => {
       console.log(jsonObject)
       callback(jsonObject);
     });
+  }
+
+  createProduct(product: Product, callback: (product: Product) => any): void {
+    this.httpClient.post<Product>(`${API_BASE_URL}products/`, product).subscribe(jsonObject => {
+      callback(jsonObject);
+    });
+  }
+
+  updateProduct(product: Product, callback: (product: Product) => any): void {
+    this.httpClient.put<Product>(`${API_BASE_URL}products/`, product).subscribe(jsonObject => {
+      callback(jsonObject);
+    });
+  }
+
+  deleteProduct(id: number, callback: (deleteId: Object) => any): void {
+    this.httpClient.delete(`${API_BASE_URL}products/${id}`).subscribe(jsonObject => {
+      callback(jsonObject);
+    })
   }
 }
