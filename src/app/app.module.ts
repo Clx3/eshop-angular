@@ -26,6 +26,7 @@ import { ProductService } from './service/product.service';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CategoryService } from './service/category.service';
 import { ProductManagerComponent } from './product-manager/product-manager.component';
+import { CategoryManagerComponent } from './category-manager/category-manager.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProductManagerComponent } from './product-manager/product-manager.compo
     ControlPanelComponent,
     ProductCardComponent,
     ProductManagerComponent,
+    CategoryManagerComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,4 +17,23 @@ export class CategoryService {
       callback(jsonObject);
     });
   }
+
+  createCategory(category: Category, callback: (createdCategory: Category) => any) {
+    this.httpClient.post<Category>(`${API_BASE_URL}category/`, category).subscribe(jsonObject => {
+      callback(jsonObject);
+    });
+  }
+
+  updateCategory(category: Category, callback: (updatedCategory: Category) => any) {
+    this.httpClient.put<Category>(`${API_BASE_URL}category/`, category).subscribe(jsonObject => {
+      callback(jsonObject);
+    });
+  }
+
+  deleteCategory(id: number, callback: (jsonObject: object) => any) {
+    this.httpClient.delete(`${API_BASE_URL}category/${id}`).subscribe(jsonObject => {
+      callback(jsonObject);
+    });
+  }
+  
 }
