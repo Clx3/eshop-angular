@@ -3,6 +3,7 @@ import { Product } from '../entity/product';
 import { ProductService } from '../service/product.service';
 import { CategoryService } from '../service/category.service';
 import { Category } from '../entity/category';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'product-manager',
@@ -24,7 +25,7 @@ export class ProductManagerComponent implements OnInit {
 
   categories: Category[] = [];
 
-  constructor(productService: ProductService, categoryService: CategoryService) {
+  constructor(productService: ProductService, categoryService: CategoryService, private toastr: ToastrService) {
     this.productService = productService;
     this.categoryService = categoryService;
 
@@ -65,20 +66,27 @@ export class ProductManagerComponent implements OnInit {
     const deleteId = this.inModifyProduct.id;
 
     this.productService.deleteProduct(deleteId, jsonObject => {
+      this.toastr.success('Product deleted succesfully!', 'Done!' , {
+        positionClass: 'toast-bottom-center'
+      });
       this.refreshProducts(0);
     });
   }
 
   onUpdateBtnClick() {
     this.productService.updateProduct(this.inModifyProduct, updatedProduct => {
-      console.log(updatedProduct);
+      this.toastr.success('Product updated succesfully!', 'Done!' , {
+        positionClass: 'toast-bottom-center'
+      });
       this.refreshProducts(updatedProduct.id);
     });
   }
 
   onCreateBtnClick() {
     this.productService.createProduct(this.inModifyProduct, createdProduct => {
-      console.log(createdProduct);
+      this.toastr.success('Product created succesfully!', 'Done!' , {
+        positionClass: 'toast-bottom-center'
+      });
       this.refreshProducts(createdProduct.id);
     });
   }

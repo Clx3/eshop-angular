@@ -14,6 +14,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -48,7 +50,8 @@ import { ProductManagerComponent } from './product-manager/product-manager.compo
     MatInputModule,
     FlexLayoutModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    ToastrModule.forRoot()
   ],
   exports: [
     ProductCardComponent
