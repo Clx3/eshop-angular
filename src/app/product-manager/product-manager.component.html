@@ -6,7 +6,7 @@
         <mat-select [(ngModel)]="selectedProduct" (selectionChange)="onProductSelectionChange($event.value)">
           <mat-option *ngFor="let product of products" [value]="product">{{ product.name }}</mat-option>
         </mat-select>
-        <mat-icon matSuffix>category</mat-icon>
+        <mat-icon matSuffix>shop</mat-icon>
       </mat-form-field>
     </div>
   </div>
@@ -34,8 +34,11 @@
     <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Description</mat-label>
-        <input [(ngModel)]="inModifyProduct.description" matInput placeholder="Enter product description..." value="">
-        <mat-icon matSuffix>label</mat-icon>
+        <textarea 
+          [(ngModel)]="inModifyProduct.description" 
+          matInput placeholder="Enter product description..."
+          rows="5"
+        ></textarea>
       </mat-form-field>
     </div>
   </div>
@@ -43,7 +46,7 @@
     <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Price</mat-label>
-        <input [(ngModel)]="inModifyProduct.price" matInput placeholder="Enter price for product.." value="">
+        <input [(ngModel)]="inModifyProduct.price" matInput placeholder="Enter price for product..">
         <mat-icon matSuffix>attach_money</mat-icon>
       </mat-form-field>
     </div>
