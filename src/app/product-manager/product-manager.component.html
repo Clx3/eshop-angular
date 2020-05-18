@@ -1,1 +1,94 @@
-<p>product-manager works!</p>
+<div class="container" fxFlex="100%" style="">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
+      <mat-form-field appearance="outline">
+        <mat-label>Select product to be edited</mat-label>
+        <mat-select [(ngModel)]="selectedProduct" (selectionChange)="onProductSelectionChange($event.value)">
+          <mat-option *ngFor="let product of products" [value]="product">{{ product.name }}</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>category</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Product name</mat-label>
+        <input [(ngModel)]="inModifyProduct.name" matInput placeholder="Enter product name...">
+        <mat-icon matSuffix>label</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
+      <mat-form-field appearance="outline">
+        <mat-label>Select product category</mat-label>
+        <mat-select [(ngModel)]="inModifyProduct.categoryId">
+          <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>category</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <input [(ngModel)]="inModifyProduct.description" matInput placeholder="Enter product description..." value="">
+        <mat-icon matSuffix>label</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Price</mat-label>
+        <input [(ngModel)]="inModifyProduct.price" matInput placeholder="Enter price for product.." value="">
+        <mat-icon matSuffix>attach_money</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div class="product-input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
+      <div class="button-container">
+        <div fxLayout="row" fxLayoutAlign="center">Delete</div>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button 
+            mat-fab color="warn" 
+            aria-label="Example icon button with a delete icon"
+            (click)="onDeleteBtnClick()"
+            [disabled]="inModifyProduct.id === 0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="button-container">
+        <div fxLayout="row" fxLayoutAlign="center">Update</div>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button 
+            mat-fab color="accent" 
+            aria-label="Example icon button with a delete icon" 
+            (click)="onUpdateBtnClick()"
+            [disabled]="inModifyProduct.id === 0"
+          >
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="button-container">
+        <div fxLayout="row" fxLayoutAlign="center">Create</div>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button 
+            mat-fab color="primary" 
+            aria-label="Example icon button with a delete icon"
+            (click)="onCreateBtnClick()"
+            [disabled]="inModifyProduct.id !== 0"
+            >
+            <mat-icon>check</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
