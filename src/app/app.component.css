@@ -1,1 +1,8 @@
-@import '../assets/component_style.css';
+.navbar {
+  background-color: #b2ebf9;
+  height: 120px;
+}
+
+.nav-image-container {
+  height: 100px;
+}

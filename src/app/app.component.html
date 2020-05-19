@@ -1,37 +1,31 @@
-<div fxLayout="column" fxLayoutGap="50px">
-  <nav>
-    <mat-toolbar style="background-color: #b2ebf9;">
-      <div fxFlex="100%">
-        <div fxLayout="row">
-          <div fxFlex="33.3%" fxLayoutAlign="start">
-            <button mat-button [matMenuTriggerFor]="menu">
-              <mat-icon class="epic-icon">home</mat-icon>
-              Home
-            </button>
-            <button mat-button routerLink="/products">
-              <mat-icon>shop</mat-icon>
-              Products
-            </button>
-          </div>
-          <div fxFlex="33.3%" fxLayoutAlign="center">
-            <img src='../assets/logo_transparent.png' style="width: 150px; height: 150px;">
-          </div>
-          <div fxFlex="33.3%" fxLayoutAlign="end">
-          <button mat-button routerLink="/manage">
-            <mat-icon>settings</mat-icon>
-            Manage
-          </button>
-          </div>
-        </div>
+<div class="navbar" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="column" fxFlex="33.3%">
+      <div fxLayout="row">
+        <button mat-button>
+          <mat-icon class="epic-icon">home</mat-icon>
+          Home
+        </button>
+        <button mat-button routerLink="/products">
+          <mat-icon>shop</mat-icon>
+          Products
+        </button>
       </div>
-    </mat-toolbar>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
-    </mat-menu>
-  </nav>
+    </div>
+    <div fxLayout="column" fxFlex="33.3%">
+      <div class="nav-image-container">
+        <img src='../assets/logo_transparent.png' style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+    </div>
+    <div fxLayout="column" fxFlex="33.3%">
+      <div fxLayout="row" fxFlexAlign="end">
+        <button mat-button routerLink="/manage">
+          <mat-icon>settings</mat-icon>
+          Manage
+        </button>
+      </div>
+    </div>
+</div>
 
-  <div>
-    <router-outlet></router-outlet>
-  </div>
+<div style="padding-top: 20px;">
+  <router-outlet></router-outlet>
 </div>
