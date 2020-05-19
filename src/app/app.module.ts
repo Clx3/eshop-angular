@@ -13,6 +13,7 @@ import { MatGridListModule } from '@angular/material/grid-list'
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -55,6 +56,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     FlexLayoutModule,
     FormsModule,
     MatTabsModule,
+    MatSliderModule,
     ToastrModule.forRoot()
   ],
   exports: [

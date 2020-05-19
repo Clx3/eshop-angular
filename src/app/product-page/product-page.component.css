@@ -15,7 +15,8 @@
   margin-bottom: 20px;
 }
 .content-section-container {
-  padding-left: 100px
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .icon-text {
@@ -23,8 +24,28 @@
 }
 
 .description-container {
-  max-width: 50%;
   background-color: rgba(47, 211, 252, 0.2);
   padding: 5px;
   border-radius: 5px;
+}
+
+.ratings-container {
+  background-color: rgba(47, 211, 252, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user-rating-container {
+  max-height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+  border-radius: 5px;
+}
+
+.user-rating {
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
 }

@@ -1,5 +1,5 @@
 <div class="container" fxFlex="100%" fxLayoutAlign="center">
-  <div fxFlex="60%">
+  <div fxLayout="column" fxFlex="60%">
     <mat-card>
       <mat-card-title>{{ product?.name }}</mat-card-title>
       <mat-card-subtitle>Category_name</mat-card-subtitle>
@@ -31,7 +31,42 @@
         </div>
         <div class="content-section">
           <h1>Ratings</h1>
-          <div class="content-section-container"></div>
+          <div class="content-section-container">
+            <div class="ratings-container" fxLayout="column">
+                  <h2>User ratings</h2>
+                  <div class="user-rating-container" fxLayout="column" fxLayoutGap="10px">
+                    <div *ngFor="let rating of ratings" class="user-rating" fxLayout="row">
+                      <div fxLayout="column" fxFlex="30%">
+                        <div fxLayout="row">
+                          <mat-icon>account_circle</mat-icon>
+                          <span>{{ rating.username }}</span>
+                        </div>
+                      </div>
+                      <div fxLayout="column" fxFlex="60%">
+                        <span>{{ rating.comment }}</span>
+                      </div>
+                      <div fxLayout="column" fxFlex="10%">
+                        <span>{{ rating.ratingValue }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <h2>Submit a rating</h2>
+                  <p>{{userRating.ratingValue}}</p>
+                  <mat-slider min="0" max="5" step="0.5" [(ngModel)]="userRating.ratingValue"></mat-slider>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input [(ngModel)]="userRating.username" matInput placeholder="Enter username...">
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Review comment</mat-label>
+                    <textarea [(ngModel)]="userRating.comment" matInput rows="3" placeholder="Feel free to tell about this product.."></textarea>
+                  </mat-form-field>
+                  <button mat-fab color="primary" (click)="onAddRatingBtnClick()">
+                    <mat-icon>check</mat-icon>
+                  </button>
+              </div>
+          </div>
         </div>
       </mat-card-content>
     </mat-card>
