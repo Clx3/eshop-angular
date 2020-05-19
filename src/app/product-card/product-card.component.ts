@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../entity/product';
 import { Router } from '@angular/router';
-import { ProductService } from '../service/product.service';
+
+const DESC_MAX_LENGTH: number = 100;
 
 @Component({
   selector: 'app-product-card',
@@ -19,6 +20,15 @@ export class ProductCardComponent implements OnInit {
 
   onViewBtnClick(): void {
     this.router.navigate(['/product', this.product.id]);
+  }
+
+  getDescription(): string {
+    const description = this.product.description;
+    if (this.product.description.length > DESC_MAX_LENGTH) {
+      return description.slice(0, DESC_MAX_LENGTH) + '...';
+    } else {
+      return description;
+    }
   }
 
 }
