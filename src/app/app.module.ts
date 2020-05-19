@@ -27,6 +27,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { CategoryService } from './service/category.service';
 import { ProductManagerComponent } from './product-manager/product-manager.component';
 import { CategoryManagerComponent } from './category-manager/category-manager.component';
+import { ProductPageComponent } from './product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CategoryManagerComponent } from './category-manager/category-manager.co
     ProductCardComponent,
     ProductManagerComponent,
     CategoryManagerComponent,
+    ProductPageComponent,
   ],
   imports: [
     BrowserModule,

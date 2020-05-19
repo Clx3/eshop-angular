@@ -1,0 +1,39 @@
+<div class="container" fxFlex="100%" fxLayoutAlign="center">
+  <div fxFlex="60%">
+    <mat-card>
+      <mat-card-title>{{ product?.name }}</mat-card-title>
+      <mat-card-subtitle>Category_name</mat-card-subtitle>
+      <div class="md-unstyled-image" fxLayoutAlign="center">
+        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+      </div>
+      <mat-card-content>
+        <div class="content-section">
+          <h1>Actions</h1>
+          <div class="content-section-container">
+            <div fxLayout="column">
+              <button 
+                mat-fab color="primary" 
+                (click)="onAddToCartBtnClick()"
+              >
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+              <span class="icon-text">Add to cart</span>
+            </div>
+          </div>
+        </div>
+        <div class="content-section">
+          <h1>Description</h1>
+          <div class="content-section-container">
+            <div class="description-container">
+              <span>{{ product?.description }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="content-section">
+          <h1>Ratings</h1>
+          <div class="content-section-container"></div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

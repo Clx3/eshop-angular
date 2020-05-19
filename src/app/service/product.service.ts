@@ -20,6 +20,13 @@ export class ProductService {
     });
   }
 
+  getProductById(id: number, callback: (product: Product) => any): void {
+    this.httpClient.get<Product>(`${API_BASE_URL}products/${id}`).subscribe(jsonObject => {
+      
+      callback(jsonObject);
+    });
+  }
+
   getProductsByFilters(searchText: string, categoryId: number, callback: (products: Product[]) => any) {
     let params = new HttpParams();
 

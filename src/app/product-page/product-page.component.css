@@ -1,0 +1,30 @@
+.product-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: rgba(119, 228, 255, 0.2);
+  border-radius: 10px;
+}
+
+.md-unstyled-image img{
+  max-width: 50%;
+  width: auto;
+  height: auto !important; /* needs to be important because md-card also sets it that way */
+  border-radius: 50px;
+}
+.content-container {
+  margin-bottom: 20px;
+}
+.content-section-container {
+  padding-left: 100px
+}
+
+.icon-text {
+  margin-top: 5px;
+}
+
+.description-container {
+  max-width: 50%;
+  background-color: rgba(47, 211, 252, 0.2);
+  padding: 5px;
+  border-radius: 5px;
+}
