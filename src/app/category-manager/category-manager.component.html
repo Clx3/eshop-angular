@@ -1,63 +1,65 @@
-<div class="container" fxFlex="100%" style="">
-  <div fxLayout="row" fxLayoutAlign="center">
-    <div class="input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
-      <mat-form-field appearance="outline">
-        <mat-label>Select category to be edited</mat-label>
-        <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onCategorySelectionChange($event.value)">
-          <mat-option *ngFor="let category of categories" [value]="category">{{ category.name }}</mat-option>
-        </mat-select>
-        <mat-icon matSuffix>category</mat-icon>
-      </mat-form-field>
-    </div>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="center">
-    <div class="input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
-      <mat-form-field class="example-full-width" appearance="outline">
-        <mat-label>Category name</mat-label>
-        <input [(ngModel)]="inModifyCategory.name" matInput placeholder="Enter category name...">
-        <mat-icon matSuffix>label</mat-icon>
-      </mat-form-field>
-    </div>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="center">
-    <div class="input-container" fxFlex="80%" fxFlex.gt-sm="50%" fxLayoutAlign="center">
-      <div class="button-container">
-        <div fxLayout="row" fxLayoutAlign="center">Delete</div>
-        <div fxLayout="row" fxLayoutAlign="center">
-          <button 
-            mat-fab color="warn" 
-            aria-label="Example icon button with a delete icon"
-            (click)="onDeleteBtnClick()"
-            [disabled]="inModifyCategory.id === 0"
-          >
-            <mat-icon>close</mat-icon>
-          </button>
-        </div>
+<div class="container" fxFlex="100%" fxLayoutAlign="center">
+  <div class="editor-container" fxFlex="80%" fxFlex.gt-sm="50%">
+    <div fxLayout="row" fxLayoutAlign="center">
+      <div class="input-container" fxFlex="100%" fxLayoutAlign="center">
+        <mat-form-field appearance="outline">
+          <mat-label>Select category to be edited</mat-label>
+          <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onCategorySelectionChange($event.value)">
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category.name }}</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>category</mat-icon>
+        </mat-form-field>
       </div>
-      <div class="button-container">
-        <div fxLayout="row" fxLayoutAlign="center">Update</div>
-        <div fxLayout="row" fxLayoutAlign="center">
-          <button 
-            mat-fab color="accent" 
-            aria-label="Example icon button with a delete icon" 
-            (click)="onUpdateBtnClick()"
-            [disabled]="inModifyCategory.id === 0"
-          >
-            <mat-icon>refresh</mat-icon>
-          </button>
-        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <div class="input-container" fxFlex="100%" fxLayoutAlign="center">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Category name</mat-label>
+          <input [(ngModel)]="inModifyCategory.name" matInput placeholder="Enter category name...">
+          <mat-icon matSuffix>label</mat-icon>
+        </mat-form-field>
       </div>
-      <div class="button-container">
-        <div fxLayout="row" fxLayoutAlign="center">Create</div>
-        <div fxLayout="row" fxLayoutAlign="center">
-          <button 
-            mat-fab color="primary" 
-            aria-label="Example icon button with a delete icon"
-            (click)="onCreateBtnClick()"
-            [disabled]="inModifyCategory.id !== 0"
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <div class="input-container" fxFlex="100%" fxLayoutAlign="center">
+        <div class="button-container">
+          <div fxLayout="row" fxLayoutAlign="center">Delete</div>
+          <div fxLayout="row" fxLayoutAlign="center">
+            <button 
+              mat-fab color="warn" 
+              aria-label="Example icon button with a delete icon"
+              (click)="onDeleteBtnClick()"
+              [disabled]="inModifyCategory.id === 0"
             >
-            <mat-icon>check</mat-icon>
-          </button>
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="button-container">
+          <div fxLayout="row" fxLayoutAlign="center">Update</div>
+          <div fxLayout="row" fxLayoutAlign="center">
+            <button 
+              mat-fab color="accent" 
+              aria-label="Example icon button with a delete icon" 
+              (click)="onUpdateBtnClick()"
+              [disabled]="inModifyCategory.id === 0"
+            >
+              <mat-icon>refresh</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="button-container">
+          <div fxLayout="row" fxLayoutAlign="center">Create</div>
+          <div fxLayout="row" fxLayoutAlign="center">
+            <button 
+              mat-fab color="primary" 
+              aria-label="Example icon button with a delete icon"
+              (click)="onCreateBtnClick()"
+              [disabled]="inModifyCategory.id !== 0"
+              >
+              <mat-icon>check</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
     </div>

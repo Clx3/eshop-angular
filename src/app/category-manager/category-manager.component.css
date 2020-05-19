@@ -1,3 +1,13 @@
+@import '../../assets/component_style.css';
+
+.editor-container {
+  margin-top: 25px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgba(119, 228, 255, 0.2);
+  border-radius: 10px;
+}
+
 .input-container {
   margin-top: 10px;
   margin-bottom: 10px;

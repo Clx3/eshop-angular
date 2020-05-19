@@ -1,9 +1,29 @@
 <div fxLayout="column" fxLayoutGap="50px">
   <nav>
-    <mat-toolbar>
-      <button mat-button [matMenuTriggerFor]="menu">Home</button>
-      <button mat-button routerLink="/products">Products</button>
-      <button mat-button routerLink="/manage">Manage</button>
+    <mat-toolbar style="background-color: #b2ebf9;">
+      <div fxFlex="100%">
+        <div fxLayout="row">
+          <div fxFlex="33.3%" fxLayoutAlign="start">
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon class="epic-icon">home</mat-icon>
+              Home
+            </button>
+            <button mat-button routerLink="/products">
+              <mat-icon>shop</mat-icon>
+              Products
+            </button>
+          </div>
+          <div fxFlex="33.3%" fxLayoutAlign="center">
+            <img src='../assets/logo_transparent.png' style="width: 150px; height: 150px;">
+          </div>
+          <div fxFlex="33.3%" fxLayoutAlign="end">
+          <button mat-button routerLink="/manage">
+            <mat-icon>settings</mat-icon>
+            Manage
+          </button>
+          </div>
+        </div>
+      </div>
     </mat-toolbar>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Item 1</button>
