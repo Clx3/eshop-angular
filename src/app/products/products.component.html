@@ -3,7 +3,7 @@
     <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="20px">
       <mat-form-field fxFlex="40%" appearance="outline">
         <mat-label>Search for products</mat-label>
-        <input [(ngModel)]="searchInputText" matInput placeholder="Start typing...">
+        <input [(ngModel)]="searchInputText" matInput placeholder="Start typing..." (keydown.enter)="filterProducts()">
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
       <mat-form-field fxFlex="20%" appearance="outline">
