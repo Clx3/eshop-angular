@@ -1,9 +1,9 @@
 <mat-card class="product-card">
   <mat-card-header>
     <mat-card-title>{{ product.name }}</mat-card-title>
-    <mat-card-subtitle>Category</mat-card-subtitle>
+    <mat-card-subtitle>{{ product.price }}$</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+    <product-image [productId]="product.id"></product-image>
   <mat-card-content>
     <p>{{ getDescription() }}</p>
   </mat-card-content>

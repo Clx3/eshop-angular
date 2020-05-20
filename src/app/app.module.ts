@@ -29,6 +29,9 @@ import { CategoryService } from './service/category.service';
 import { ProductManagerComponent } from './product-manager/product-manager.component';
 import { CategoryManagerComponent } from './category-manager/category-manager.component';
 import { ProductPageComponent } from './product-page/product-page.component';
+import { RatingService } from './service/rating.service';
+import { ProductImageService } from './service/product-image.service';
+import { ProductImageComponent } from './product-image/product-image.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
     ProductManagerComponent,
     CategoryManagerComponent,
     ProductPageComponent,
+    ProductImageComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
   exports: [
     ProductCardComponent
   ],
-  providers: [ProductService, CategoryService],
+  providers: [ProductService, CategoryService, RatingService, ProductImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

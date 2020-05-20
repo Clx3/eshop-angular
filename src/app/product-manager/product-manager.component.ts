@@ -4,6 +4,7 @@ import { ProductService } from '../service/product.service';
 import { CategoryService } from '../service/category.service';
 import { Category } from '../entity/category';
 import { ToastrService } from 'ngx-toastr';
+import { ProductImageService } from '../service/product-image.service';
 
 @Component({
   selector: 'product-manager',
@@ -12,11 +13,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductManagerComponent implements OnInit {
 
-  productService: ProductService;
-  categoryService: CategoryService;
-
   products: Product[] = [];
   selectedProduct: Product;
+
+  productPictureFile: File;
 
   /**
    * This is the product that is going to be modified.
@@ -25,9 +25,11 @@ export class ProductManagerComponent implements OnInit {
 
   categories: Category[] = [];
 
-  constructor(productService: ProductService, categoryService: CategoryService, private toastr: ToastrService) {
-    this.productService = productService;
-    this.categoryService = categoryService;
+  constructor(
+    private productService: ProductService, 
+    private categoryService: CategoryService, 
+    private productImageService: ProductImageService, 
+    private toastr: ToastrService) {
 
     this.refreshProducts(0);
 
@@ -87,8 +89,20 @@ export class ProductManagerComponent implements OnInit {
       this.toastr.success('Product created succesfully!', 'Done!' , {
         positionClass: 'toast-bottom-center'
       });
+
+      /* Uploading the image */
+      this.productImageService.uploadProductImage(createdProduct.id, this.productPictureFile, jsonObject => {
+        this.toastr.success('Product image uploaded succesfully!', 'Done!' , {
+          positionClass: 'toast-bottom-center'
+        });
+      });
+
       this.refreshProducts(createdProduct.id);
     });
+  }
+
+  onFileInputChange(files: FileList) {
+    this.productPictureFile = files.item(0);
   }
 
 }

@@ -4,7 +4,7 @@
       <mat-card-title>{{ product?.name }}</mat-card-title>
       <mat-card-subtitle>Category_name</mat-card-subtitle>
       <div class="md-unstyled-image" fxLayoutAlign="center">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <product-image [productId]="product?.id"></product-image>
       </div>
       <mat-card-content>
         <div class="content-section">

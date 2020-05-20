@@ -33,6 +33,13 @@
     </div>
     <div fxLayout="row" fxLayoutAlign="center">
       <div class="input-container" fxFlex="100%" fxLayoutAlign="center">
+        <input 
+          type="file"
+          (change)="onFileInputChange($event.target.files)"/>
+      </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <div class="input-container" fxFlex="100%" fxLayoutAlign="center">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Description</mat-label>
           <textarea 
